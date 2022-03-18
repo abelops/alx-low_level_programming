@@ -1,42 +1,27 @@
 #include <stdio.h>
-/**
- * main - check the code for Holberton School students.
- *
- * Return: void.
- */
+#include <stdlib.h>
 
+/**
+ *  * main- prints the numbers from  to 0 to 100 with the restriction
+ *   * Return: Always 0.
+ */
 int main(void)
 {
+		int i;
 
-	int i = 1;
-
-	while (i <= 100)
-	{
-		if (i % 3 == 0 && i % 5 == 0)
+		for (i = 1; i <= 100; i++)
 		{
-			printf("FizzBuzz");
+			if (i % 3 == 0 && i % 5 == 0)
+				printf("FizzBuzz");
+			else if (i % 3 == 0)
+				printf("Fizz");
+			else if (i % 5 == 0)
+				printf("Buzz");
+			else
+				printf("%d", i);
+			if (i != 100)
+				putchar(' ');
 		}
-		else if (i % 3 == 0)
-		{
-			printf("Fizz");
-		}
-		else if (i % 5 == 0)
-		{
-			printf("Buzz");
-		}
-		else
-		{
-			printf("%i", i);
-		}
-
-		if (i != 100)
-		{
-			putchar(' ');
-		}
-
-		i++;
-	}
-	putchar('\n');
-	return (0);
-
+		putchar('\n');
+		return (0);
 }
