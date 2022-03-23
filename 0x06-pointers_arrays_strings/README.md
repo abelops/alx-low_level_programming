@@ -1,1 +1,1 @@
-# Learning Pointers, arrays and strings in C
+This file is mandatory in all ALX School projects

@@ -1,28 +1,24 @@
-#include "holberton.h"
-
+#include "main.h"
 /**
- * leet - transform to leet
- * @s: char array string type
- * Return: s transformed
+ * leet - encodes a string into 1337 replaced:
+ * a,A to 4 e,E to 3 o,O to 0 t,T to 7 l,L to 1
+ * @str: string to encode
+ * Return: a pointer to the encoded string
  */
-
-char *leet(char *s)
+char *leet(char *str)
 {
-	int i, ii;
-	char s1[] = "aeotl";
-	char S1[] = "AEOTL";
-	char s2[] = "43071";
+	int i = 0, j = 0;
+	char s1[] = {'a', 'e', 'o', 't', 'l', 'A', 'E', 'O', 'T', 'L'};
+	int s2[] = {4, 3, 0, 7, 1, 4, 3, 0, 7, 1};
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (str[i] != '\0')
 	{
-		for (ii = 0; ii < 5; ii++)
+		for (j = 0; s1[j] != '\0'; j++)
 		{
-			if (s[i] == s1[ii] || s[i] == S1[ii])
-			{
-				s[i] = s2[ii];
-				break;
-			}
+			if (str[i] == s1[j])
+				str[i] = s2[j] + 48;
 		}
+		i++;
 	}
-	return (s);
+	return (str);
 }
