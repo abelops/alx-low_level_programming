@@ -1,44 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * isInteger - checks if s is an integer
- * @s: string to check
- * Return: 0 or 1
- */
+  *main - adds and prints sum of positive numbers
+  *followed by a new line.
+  *@argc: number of arguments passed.
+  *@argv: pointer to array of size argc, containing
+  *arguments passed.
+  *
+  *Return: 0 on success.
+  *1 on error.
+  */
+int main(int argc, char *argv[])
+{
+	int count, count2, sum;
 
-int isInteger(const char *s)
-{
-int i = 0;
-while (s[i] != '\0')
-{
-	if (s[i] < '0' || s[i] > '9')
-		return (1);
-	i++;
-}
-return (0);
-}
+	sum = 0;
 
-/**
- * main - adds positive numbers
- * @argc: int
- * @argv: list
- * Return: 0
- */
-
-int main(int argc, char const *argv[])
-{
-int sum = 0;
-while (--argc)
-{
-	if (isInteger(argv[argc]))
+	if (argc < 2)
 	{
-		printf("Error\n");
-		return (1);
+		printf("0\n");
+		return (0);
 	}
-	sum += atoi(argv[argc]);
-}
-
-printf("%i\n", sum);
-
-return (0);
+	for (count = 1; count < argc; count++)
+	{
+		for (count2 = 0; argv[count][count2] != '\0'; count2++)
+		{
+			if (argv[count][count2] < '0' || argv[count][count2] > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
+		sum += atoi(argv[count]);
+	}
+	printf("%d\n", sum);
+	return (0);
 }
